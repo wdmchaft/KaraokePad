@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB05EA4614840FC500CF036F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4514840FC500CF036F /* UIKit.framework */; };
+		EB05EA4814840FC500CF036F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4714840FC500CF036F /* Foundation.framework */; };
+		EB05EA4A14840FC500CF036F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4914840FC500CF036F /* CoreGraphics.framework */; };
+		EB05EA4C14840FC500CF036F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4B14840FC500CF036F /* CoreData.framework */; };
+		EB05EA5214840FC500CF036F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB05EA5014840FC500CF036F /* InfoPlist.strings */; };
+		EB05EA5414840FC500CF036F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA5314840FC500CF036F /* main.m */; };
+		EB05EA6314840FC600CF036F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA6214840FC600CF036F /* SenTestingKit.framework */; };
+		EB05EA6414840FC600CF036F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4514840FC500CF036F /* UIKit.framework */; };
+		EB05EA6514840FC600CF036F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4714840FC500CF036F /* Foundation.framework */; };
+		EB05EA6614840FC600CF036F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4B14840FC500CF036F /* CoreData.framework */; };
+		EB05EA881484129E00CF036F /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA811484129E00CF036F /* KPAppDelegate.m */; };
+		EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA841484129E00CF036F /* KaraokePad.xcdatamodeld */; };
+		EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13B148DEC2B0019E720 /* InfoPlist.strings */; };
+		EB58A142148DEC2B0019E720 /* KaraokePadTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */; };
+		EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB58A140148DEC2B0019E720 /* KaraokePadTests.m */; };
+		EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF8651148DF25F00615C69 /* KPRootViewController.m */; };
+		EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF866F148DF82D00615C69 /* libLTKit.a */; };
+		EBCF8678148DF93A00615C69 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF8677148DF93A00615C69 /* AVFoundation.framework */; };
+		EBCF867B148DF9A600615C69 /* マスターピース (TVsize).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */; };
+		EBCF8689148E02AD00615C69 /* KPMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB05EA6714840FC600CF036F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB05EA3814840FC500CF036F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB05EA4014840FC500CF036F;
+			remoteInfo = KaraokePad;
+		};
+		EBCF866E148DF82D00615C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB1CDB2E141DB07700729A2D;
+			remoteInfo = LTKit;
+		};
+		EBCF8670148DF82D00615C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB1CDB3E141DB07800729A2D;
+			remoteInfo = LTKitTests;
+		};
+		EBCF8672148DF82D00615C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB1CDB5C141DB46E00729A2D;
+			remoteInfo = LTPlayground;
+		};
+		EBCF8674148DF83500615C69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EB1CDB2D141DB07700729A2D;
+			remoteInfo = LTKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB05EA4114840FC500CF036F /* KaraokePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaraokePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB05EA4514840FC500CF036F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EB05EA4714840FC500CF036F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EB05EA4914840FC500CF036F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EB05EA4B14840FC500CF036F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EB05EA4F14840FC500CF036F /* KaraokePad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KaraokePad-Info.plist"; sourceTree = "<group>"; };
+		EB05EA5114840FC500CF036F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EB05EA5314840FC500CF036F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB05EA5514840FC500CF036F /* KaraokePad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KaraokePad-Prefix.pch"; sourceTree = "<group>"; };
+		EB05EA6114840FC600CF036F /* KaraokePadTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaraokePadTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB05EA6214840FC600CF036F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EB05EA801484129E00CF036F /* KPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAppDelegate.h; sourceTree = "<group>"; };
+		EB05EA811484129E00CF036F /* KPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EB05EA851484129E00CF036F /* KaraokePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KaraokePad.xcdatamodel; sourceTree = "<group>"; };
+		EB58A13C148DEC2B0019E720 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KaraokePadTests-Info.plist"; sourceTree = "<group>"; };
+		EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraokePadTests.h; sourceTree = "<group>"; };
+		EB58A140148DEC2B0019E720 /* KaraokePadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaraokePadTests.m; sourceTree = "<group>"; };
+		EBCF8650148DF25F00615C69 /* KPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPRootViewController.h; sourceTree = "<group>"; };
+		EBCF8651148DF25F00615C69 /* KPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPRootViewController.m; sourceTree = "<group>"; };
+		EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LTKit.xcodeproj; path = LTKit/LTKit.xcodeproj; sourceTree = "<group>"; };
+		EBCF8677148DF93A00615C69 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "マスターピース (TVsize).m4a"; sourceTree = "<group>"; };
+		EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KPMainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB05EA3E14840FC500CF036F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCF8678148DF93A00615C69 /* AVFoundation.framework in Frameworks */,
+				EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */,
+				EB05EA4614840FC500CF036F /* UIKit.framework in Frameworks */,
+				EB05EA4814840FC500CF036F /* Foundation.framework in Frameworks */,
+				EB05EA4A14840FC500CF036F /* CoreGraphics.framework in Frameworks */,
+				EB05EA4C14840FC500CF036F /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB05EA5D14840FC500CF036F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB05EA6314840FC600CF036F /* SenTestingKit.framework in Frameworks */,
+				EB05EA6414840FC600CF036F /* UIKit.framework in Frameworks */,
+				EB05EA6514840FC600CF036F /* Foundation.framework in Frameworks */,
+				EB05EA6614840FC600CF036F /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB05EA3614840FC500CF036F = {
+			isa = PBXGroup;
+			children = (
+				EB05EA4D14840FC500CF036F /* KaraokePad */,
+				EB58A139148DEC2B0019E720 /* KaraokePadTests */,
+				EB05EA4414840FC500CF036F /* Frameworks */,
+				EB05EA4214840FC500CF036F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB05EA4214840FC500CF036F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB05EA4114840FC500CF036F /* KaraokePad.app */,
+				EB05EA6114840FC600CF036F /* KaraokePadTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB05EA4414840FC500CF036F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF8677148DF93A00615C69 /* AVFoundation.framework */,
+				EB05EA4B14840FC500CF036F /* CoreData.framework */,
+				EB05EA4914840FC500CF036F /* CoreGraphics.framework */,
+				EB05EA4714840FC500CF036F /* Foundation.framework */,
+				EB05EA6214840FC600CF036F /* SenTestingKit.framework */,
+				EB05EA4514840FC500CF036F /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB05EA4D14840FC500CF036F /* KaraokePad */ = {
+			isa = PBXGroup;
+			children = (
+				EB05EA7F1484129E00CF036F /* Classes */,
+				EB58A144148DECA30019E720 /* External Dependencies */,
+				EB05EA821484129E00CF036F /* Resources */,
+				EB05EA4E14840FC500CF036F /* Supporting Files */,
+			);
+			path = KaraokePad;
+			sourceTree = "<group>";
+		};
+		EB05EA4E14840FC500CF036F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB05EA4F14840FC500CF036F /* KaraokePad-Info.plist */,
+				EB05EA5014840FC500CF036F /* InfoPlist.strings */,
+				EB05EA5314840FC500CF036F /* main.m */,
+				EB05EA5514840FC500CF036F /* KaraokePad-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB05EA7F1484129E00CF036F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EB05EA801484129E00CF036F /* KPAppDelegate.h */,
+				EB05EA811484129E00CF036F /* KPAppDelegate.m */,
+				EBCF8650148DF25F00615C69 /* KPRootViewController.h */,
+				EBCF8651148DF25F00615C69 /* KPRootViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EB05EA821484129E00CF036F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF8679148DF9A600615C69 /* Audio */,
+				EB05EA831484129E00CF036F /* Core Data */,
+				EB05EA861484129E00CF036F /* Images */,
+				EB05EA871484129E00CF036F /* Interface Builder */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EB05EA831484129E00CF036F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				EB05EA841484129E00CF036F /* KaraokePad.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		EB05EA861484129E00CF036F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		EB05EA871484129E00CF036F /* Interface Builder */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */,
+			);
+			path = "Interface Builder";
+			sourceTree = "<group>";
+		};
+		EB58A139148DEC2B0019E720 /* KaraokePadTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A13A148DEC2B0019E720 /* Supporting Files */,
+				EB58A13E148DEC2B0019E720 /* Tests */,
+			);
+			path = KaraokePadTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		EB58A13A148DEC2B0019E720 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A13B148DEC2B0019E720 /* InfoPlist.strings */,
+				EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB58A13E148DEC2B0019E720 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */,
+				EB58A140148DEC2B0019E720 /* KaraokePadTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		EB58A144148DECA30019E720 /* External Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */,
+			);
+			path = "External Dependencies";
+			sourceTree = "<group>";
+		};
+		EBCF8665148DF82D00615C69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF866F148DF82D00615C69 /* libLTKit.a */,
+				EBCF8671148DF82D00615C69 /* LTKitTests.octest */,
+				EBCF8673148DF82D00615C69 /* LTPlayground.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBCF8679148DF9A600615C69 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB05EA4014840FC500CF036F /* KaraokePad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB05EA7414840FC600CF036F /* Build configuration list for PBXNativeTarget "KaraokePad" */;
+			buildPhases = (
+				EB05EA3D14840FC500CF036F /* Sources */,
+				EB05EA3E14840FC500CF036F /* Frameworks */,
+				EB05EA3F14840FC500CF036F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBCF8675148DF83500615C69 /* PBXTargetDependency */,
+			);
+			name = KaraokePad;
+			productName = KaraokePad;
+			productReference = EB05EA4114840FC500CF036F /* KaraokePad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB05EA6014840FC500CF036F /* KaraokePadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB05EA7714840FC600CF036F /* Build configuration list for PBXNativeTarget "KaraokePadTests" */;
+			buildPhases = (
+				EB05EA5C14840FC500CF036F /* Sources */,
+				EB05EA5D14840FC500CF036F /* Frameworks */,
+				EB05EA5E14840FC500CF036F /* Resources */,
+				EB05EA5F14840FC500CF036F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB05EA6814840FC600CF036F /* PBXTargetDependency */,
+			);
+			name = KaraokePadTests;
+			productName = KaraokePadTests;
+			productReference = EB05EA6114840FC600CF036F /* KaraokePadTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB05EA3814840FC500CF036F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = LucasTizma;
+			};
+			buildConfigurationList = EB05EA3B14840FC500CF036F /* Build configuration list for PBXProject "KaraokePad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EB05EA3614840FC500CF036F;
+			productRefGroup = EB05EA4214840FC500CF036F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBCF8665148DF82D00615C69 /* Products */;
+					ProjectRef = EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EB05EA4014840FC500CF036F /* KaraokePad */,
+				EB05EA6014840FC500CF036F /* KaraokePadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBCF866F148DF82D00615C69 /* libLTKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLTKit.a;
+			remoteRef = EBCF866E148DF82D00615C69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCF8671148DF82D00615C69 /* LTKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LTKitTests.octest;
+			remoteRef = EBCF8670148DF82D00615C69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCF8673148DF82D00615C69 /* LTPlayground.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LTPlayground.app;
+			remoteRef = EBCF8672148DF82D00615C69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB05EA3F14840FC500CF036F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB05EA5214840FC500CF036F /* InfoPlist.strings in Resources */,
+				EBCF867B148DF9A600615C69 /* マスターピース (TVsize).m4a in Resources */,
+				EBCF8689148E02AD00615C69 /* KPMainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB05EA5E14840FC500CF036F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */,
+				EB58A142148DEC2B0019E720 /* KaraokePadTests-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EB05EA5F14840FC500CF036F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB05EA3D14840FC500CF036F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB05EA5414840FC500CF036F /* main.m in Sources */,
+				EB05EA881484129E00CF036F /* KPAppDelegate.m in Sources */,
+				EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */,
+				EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB05EA5C14840FC500CF036F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB05EA6814840FC600CF036F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB05EA4014840FC500CF036F /* KaraokePad */;
+			targetProxy = EB05EA6714840FC600CF036F /* PBXContainerItemProxy */;
+		};
+		EBCF8675148DF83500615C69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LTKit;
+			targetProxy = EBCF8674148DF83500615C69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB05EA5014840FC500CF036F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB05EA5114840FC500CF036F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EB58A13B148DEC2B0019E720 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB58A13C148DEC2B0019E720 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB05EA7214840FC600CF036F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EB05EA7314840FC600CF036F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB05EA7514840FC600CF036F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"KaraokePad/External Dependencies/LTKit/**",
+				);
+				INFOPLIST_FILE = "KaraokePad/Supporting Files/KaraokePad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EB05EA7614840FC600CF036F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"KaraokePad/External Dependencies/LTKit/**",
+				);
+				INFOPLIST_FILE = "KaraokePad/Supporting Files/KaraokePad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EB05EA7814840FC600CF036F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KaraokePad.app/KaraokePad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
+				INFOPLIST_FILE = "KaraokePadTests/KaraokePadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EB05EA7914840FC600CF036F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KaraokePad.app/KaraokePad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
+				INFOPLIST_FILE = "KaraokePadTests/KaraokePadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB05EA3B14840FC500CF036F /* Build configuration list for PBXProject "KaraokePad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB05EA7214840FC600CF036F /* Debug */,
+				EB05EA7314840FC600CF036F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB05EA7414840FC600CF036F /* Build configuration list for PBXNativeTarget "KaraokePad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB05EA7514840FC600CF036F /* Debug */,
+				EB05EA7614840FC600CF036F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB05EA7714840FC600CF036F /* Build configuration list for PBXNativeTarget "KaraokePadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB05EA7814840FC600CF036F /* Debug */,
+				EB05EA7914840FC600CF036F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB05EA841484129E00CF036F /* KaraokePad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB05EA851484129E00CF036F /* KaraokePad.xcdatamodel */,
+			);
+			currentVersion = EB05EA851484129E00CF036F /* KaraokePad.xcdatamodel */;
+			path = KaraokePad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EB05EA3814840FC500CF036F /* Project object */;
+}

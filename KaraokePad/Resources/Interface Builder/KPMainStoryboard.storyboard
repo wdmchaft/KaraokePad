@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="jOl-Yz-uOT">
+    <dependencies>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="9Xw-NS-kDb">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BqU-oQ-umx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="jOl-Yz-uOT" customClass="KPRootViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4xZ-pV-dKr">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y2d-rI-do7" userLabel="Play/Pause Button">
+                                <rect key="frame" x="315" y="484" width="138" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPlayPauseButton" destination="jOl-Yz-uOT" eventType="touchUpInside" id="9l4-xP-Mfa"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="MBP-uj-KBI" userLabel="Playhead Slider">
+                                <rect key="frame" x="18" y="962" width="732" height="23"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="playheadSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="eBm-We-sBV"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="2" id="TOP-Td-fwz" userLabel="Playback Speed Slider">
+                                <rect key="frame" x="18" y="878" width="732" height="23"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="playbackSpeedSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="c8w-hg-3Ih"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="Y2d-rI-do7" id="Qi6-SC-3fz"/>
+                        <outlet property="playbackSpeedSlider" destination="TOP-Td-fwz" id="Q2s-mC-3WG"/>
+                        <outlet property="playheadSlider" destination="MBP-uj-KBI" id="mkT-f0-BHa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-118" y="-258"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="KPRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KPRootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapPlayPauseButton"/>
+                <relationship kind="action" name="playbackSpeedSliderValueChanged"/>
+                <relationship kind="action" name="playheadSliderValueChanged"/>
+                <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playbackSpeedSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="playheadSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
