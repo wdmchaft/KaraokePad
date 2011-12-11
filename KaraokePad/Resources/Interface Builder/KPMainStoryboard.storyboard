@@ -28,27 +28,70 @@
                                     <action selector="didTapPlayPauseButton" destination="jOl-Yz-uOT" eventType="touchUpInside" id="9l4-xP-Mfa"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="MBP-uj-KBI" userLabel="Playhead Slider">
-                                <rect key="frame" x="18" y="962" width="732" height="23"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <action selector="playheadSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="eBm-We-sBV"/>
-                                </connections>
-                            </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="2" id="TOP-Td-fwz" userLabel="Playback Speed Slider">
                                 <rect key="frame" x="18" y="878" width="732" height="23"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <action selector="playbackSpeedSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="c8w-hg-3Ih"/>
+                                    <action selector="playbackSpeedSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="Vkj-X7-wCg"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Playback Speed" lineBreakMode="tailTruncation" minimumFontSize="10" id="pSP-il-0BR" userLabel="Playback Speed Label">
+                                <rect key="frame" x="20" y="849" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="fLq-ti-MKF" userLabel="Vocals Volume Slider">
+                                <rect key="frame" x="18" y="819" width="732" height="23"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="vocalsVolumeSliderValueChanged" destination="jOl-Yz-uOT" eventType="valueChanged" id="FFK-Gt-Dyw"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vocals Volume" lineBreakMode="tailTruncation" minimumFontSize="10" id="H9j-fd-l10" userLabel="Vocal Volume Label">
+                                <rect key="frame" x="20" y="789" width="114" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0:00" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Zsw-ZM-gLh" userLabel="Time Elapsed Label">
+                                <rect key="frame" x="20" y="965" width="42" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-00:00" lineBreakMode="tailTruncation" minimumFontSize="10" id="O71-DU-1Rm" userLabel="Time Remaining Label">
+                                <rect key="frame" x="706" y="965" width="42" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" id="eQ3-4Z-GMD" userLabel="Playback Progress View">
+                                <rect key="frame" x="70" y="968" width="628" height="9"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Tap to return to normal speed)" lineBreakMode="tailTruncation" minimumFontSize="10" id="ueP-er-aYs" userLabel="Playback Speed Info Label">
+                                <rect key="frame" x="20" y="908" width="194" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="playPauseButton" destination="Y2d-rI-do7" id="Qi6-SC-3fz"/>
+                        <outlet property="playbackProgressView" destination="eQ3-4Z-GMD" id="JBh-Bb-fWG"/>
                         <outlet property="playbackSpeedSlider" destination="TOP-Td-fwz" id="Q2s-mC-3WG"/>
-                        <outlet property="playheadSlider" destination="MBP-uj-KBI" id="mkT-f0-BHa"/>
+                        <outlet property="timeElapsedLabel" destination="Zsw-ZM-gLh" id="5Mg-do-hVa"/>
+                        <outlet property="timeRemainingLabel" destination="O71-DU-1Rm" id="6Lz-nr-dZX"/>
+                        <outlet property="vocalsVolumeSlider" destination="fLq-ti-MKF" id="uq1-6o-Tpw"/>
                     </connections>
                 </viewController>
             </objects>
@@ -61,10 +104,13 @@
             <relationships>
                 <relationship kind="action" name="didTapPlayPauseButton"/>
                 <relationship kind="action" name="playbackSpeedSliderValueChanged"/>
-                <relationship kind="action" name="playheadSliderValueChanged"/>
+                <relationship kind="action" name="vocalsVolumeSliderValueChanged"/>
                 <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playbackProgressView" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="playbackSpeedSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="playheadSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timeElapsedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeRemainingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vocalsVolumeSlider" candidateClass="UISlider"/>
             </relationships>
         </class>
     </classes>

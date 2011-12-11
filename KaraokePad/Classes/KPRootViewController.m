@@ -15,57 +15,93 @@
 @interface KPRootViewController () <AVAudioPlayerDelegate>
 
 @property (readwrite, nonatomic, strong) IBOutlet UIButton *playPauseButton;
-@property (readwrite, nonatomic, strong) IBOutlet UISlider *playheadSlider;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *playbackSpeedSlider;
-@property (readwrite, nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (readwrite, nonatomic, strong) IBOutlet UISlider *vocalsVolumeSlider;
+@property (readwrite, nonatomic, strong) IBOutlet UIProgressView *playbackProgressView;
+@property (readwrite, nonatomic, strong) IBOutlet UILabel *timeElapsedLabel;
+@property (readwrite, nonatomic, strong) IBOutlet UILabel *timeRemainingLabel;
+
+@property (readwrite, nonatomic, strong) AVAudioPlayer *normalAudioPlayer;
+@property (readwrite, nonatomic, strong) AVAudioPlayer *instrumentalAudioPlayer;
 @property (readwrite, nonatomic, strong) NSTimer *audioPlayerPollTimer;
+@property (readwrite, nonatomic) NSTimeInterval timeElapsed;
+@property (readwrite, nonatomic) NSTimeInterval timeRemaining;
 
 - (IBAction)didTapPlayPauseButton;
-- (IBAction)playheadSliderValueChanged;
 - (IBAction)playbackSpeedSliderValueChanged;
+- (IBAction)vocalsVolumeSliderValueChanged;
+
 - (void)audioStartedPlaying;
 - (void)audioStoppedPlaying;
 - (void)audioPlayerPollTimerDidFire;
+- (void)handlePlaybackSpeedSliderTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer;
+- (NSString *)formattedTimeStringFromTimeInterval:(NSTimeInterval)timeInterval;
 
 @end
 
 @implementation KPRootViewController
 
 @synthesize playPauseButton;
-@synthesize playheadSlider;
 @synthesize playbackSpeedSlider;
-@synthesize audioPlayer;
+@synthesize vocalsVolumeSlider;
+@synthesize playbackProgressView;
+@synthesize timeElapsedLabel;
+@synthesize timeRemainingLabel;
+
+@synthesize normalAudioPlayer;
+@synthesize instrumentalAudioPlayer;
 @synthesize audioPlayerPollTimer;
+@synthesize timeElapsed;
+@synthesize timeRemaining;
+
+#pragma mark - Property Setters
+
+- (void)setTimeElapsed:(NSTimeInterval)newTimeElapsed
+{
+	timeElapsed = newTimeElapsed;
+
+	self.timeElapsedLabel.text = [self formattedTimeStringFromTimeInterval:timeElapsed];
+}
+
+- (void)setTimeRemaining:(NSTimeInterval)newTimeRemaining
+{
+	timeRemaining = newTimeRemaining;
+
+	self.timeRemainingLabel.text = [@"-" stringByAppendingString:[self formattedTimeStringFromTimeInterval:timeRemaining]];
+}
 
 #pragma mark - KPRootViewController Methods (Private)
 
 - (IBAction)didTapPlayPauseButton
 {
-	if (self.audioPlayer.playing)
+	if (self.normalAudioPlayer.playing)
 	{
-		[self.audioPlayer pause];
+		[self.normalAudioPlayer pause];
+		[self.instrumentalAudioPlayer pause];
 		[self audioStoppedPlaying];
 	}
 	else
 	{
-		[self.audioPlayer play];
+		[self.normalAudioPlayer play];
+		[self.instrumentalAudioPlayer play];
 		[self audioStartedPlaying];
 	}
 }
 
-- (IBAction)playheadSliderValueChanged
-{
-	self.audioPlayer.currentTime = (self.playheadSlider.value * self.audioPlayer.duration);
-}
-
 - (IBAction)playbackSpeedSliderValueChanged
 {
-	self.audioPlayer.rate = self.playbackSpeedSlider.value;
+	self.normalAudioPlayer.rate = self.instrumentalAudioPlayer.rate = self.playbackSpeedSlider.value;
+}
+
+- (IBAction)vocalsVolumeSliderValueChanged
+{
+	self.normalAudioPlayer.volume = self.vocalsVolumeSlider.value;
+	self.instrumentalAudioPlayer.volume = (1.0f - self.vocalsVolumeSlider.value);
 }
 
 - (void)audioStartedPlaying
 {
-	self.audioPlayerPollTimer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(audioPlayerPollTimerDidFire) userInfo:nil repeats:YES];
+	self.audioPlayerPollTimer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(audioPlayerPollTimerDidFire) userInfo:nil repeats:YES];
 	[[NSRunLoop mainRunLoop] addTimer:self.audioPlayerPollTimer forMode:NSDefaultRunLoopMode];
 
 	[self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
@@ -81,7 +117,29 @@
 
 - (void)audioPlayerPollTimerDidFire
 {
-	self.playheadSlider.value = (float)(self.audioPlayer.currentTime / self.audioPlayer.duration);
+	self.playbackProgressView.progress = (float)(self.normalAudioPlayer.currentTime / self.normalAudioPlayer.duration);
+
+	self.timeElapsed = self.normalAudioPlayer.currentTime;
+	self.timeRemaining = (self.normalAudioPlayer.duration - self.timeElapsed);
+}
+
+- (void)handlePlaybackSpeedSliderTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer
+{
+	if (tapGestureRecognizer.state == UIGestureRecognizerStateEnded)
+	{
+		self.normalAudioPlayer.rate = self.instrumentalAudioPlayer.rate = self.playbackSpeedSlider.value = 1.0f;
+	}
+}
+
+- (NSString *)formattedTimeStringFromTimeInterval:(NSTimeInterval)timeInterval
+{
+	NSDate *currentDate = [NSDate date];
+	NSDate *currentDatePlusTimeInterval = [NSDate dateWithTimeInterval:timeInterval sinceDate:currentDate];
+
+	NSUInteger unitFlags = (NSMinuteCalendarUnit | NSSecondCalendarUnit);
+	NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:unitFlags fromDate:currentDate toDate:currentDatePlusTimeInterval options:0];
+
+	return [NSString stringWithFormat:@"%02ld:%02ld", [dateComponents minute], [dateComponents second]];
 }
 
 #pragma mark - UIViewController Methods
@@ -90,12 +148,26 @@
 {
 	[super viewDidAppear:animated];
 
-	NSURL *audioResourceURL = [[NSBundle mainBundle] URLForResource:@"マスターピース (TVsize)" withExtension:@"m4a"];
+	NSURL *normalAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece" withExtension:@"m4a"];
+	NSURL *instrumentalAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Instrumental)" withExtension:@"m4a"];
 
-	self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioResourceURL error:nil];
-	self.audioPlayer.delegate = self;
-	self.audioPlayer.enableRate = YES;
-	[self.audioPlayer prepareToPlay];
+	self.normalAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:normalAudioResourceURL error:nil];
+	self.normalAudioPlayer.delegate = self;
+	self.normalAudioPlayer.enableRate = YES;
+	[self.normalAudioPlayer prepareToPlay];
+
+	self.instrumentalAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:instrumentalAudioResourceURL error:nil];
+	self.instrumentalAudioPlayer.delegate = self;
+	self.instrumentalAudioPlayer.enableRate = YES;
+	self.instrumentalAudioPlayer.volume = 0.0f;
+	[self.instrumentalAudioPlayer prepareToPlay];
+
+	self.timeElapsed = 0.0;
+	self.timeRemaining = self.normalAudioPlayer.duration;
+
+	UITapGestureRecognizer *playbackSpeedSliderTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+		action:@selector(handlePlaybackSpeedSliderTapGesture:)];
+	[self.playbackSpeedSlider addGestureRecognizer:playbackSpeedSliderTapGestureRecognizer];
 }
 
 - (void)viewDidUnload
@@ -103,8 +175,11 @@
 	[super viewDidUnload];
 
 	self.playPauseButton = nil;
-	self.playheadSlider = nil;
 	self.playbackSpeedSlider = nil;
+	self.vocalsVolumeSlider = nil;
+	self.playbackProgressView = nil;
+	self.timeElapsedLabel = nil;
+	self.timeRemainingLabel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -118,6 +193,9 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)didFinishPlayingSuccessfully
 {
+	self.timeElapsed = 0.0;
+	self.timeRemaining = self.normalAudioPlayer.duration;
+
 	[self audioStoppedPlaying];
 }
 

@@ -19,13 +19,14 @@
 		EB05EA6614840FC600CF036F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4B14840FC500CF036F /* CoreData.framework */; };
 		EB05EA881484129E00CF036F /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA811484129E00CF036F /* KPAppDelegate.m */; };
 		EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA841484129E00CF036F /* KaraokePad.xcdatamodeld */; };
+		EB40D55A1494B14C006C24CC /* Masterpiece (Instrumental).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5581494B14C006C24CC /* Masterpiece (Instrumental).m4a */; };
+		EB40D55B1494B14C006C24CC /* Masterpiece.m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5591494B14C006C24CC /* Masterpiece.m4a */; };
 		EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13B148DEC2B0019E720 /* InfoPlist.strings */; };
 		EB58A142148DEC2B0019E720 /* KaraokePadTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */; };
 		EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB58A140148DEC2B0019E720 /* KaraokePadTests.m */; };
 		EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF8651148DF25F00615C69 /* KPRootViewController.m */; };
 		EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF866F148DF82D00615C69 /* libLTKit.a */; };
 		EBCF8678148DF93A00615C69 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF8677148DF93A00615C69 /* AVFoundation.framework */; };
-		EBCF867B148DF9A600615C69 /* マスターピース (TVsize).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */; };
 		EBCF8689148E02AD00615C69 /* KPMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		EB05EA801484129E00CF036F /* KPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAppDelegate.h; sourceTree = "<group>"; };
 		EB05EA811484129E00CF036F /* KPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EB05EA851484129E00CF036F /* KaraokePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KaraokePad.xcdatamodel; sourceTree = "<group>"; };
+		EB40D5581494B14C006C24CC /* Masterpiece (Instrumental).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Masterpiece (Instrumental).m4a"; sourceTree = "<group>"; };
+		EB40D5591494B14C006C24CC /* Masterpiece.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Masterpiece.m4a; sourceTree = "<group>"; };
 		EB58A13C148DEC2B0019E720 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KaraokePadTests-Info.plist"; sourceTree = "<group>"; };
 		EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraokePadTests.h; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		EBCF8651148DF25F00615C69 /* KPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPRootViewController.m; sourceTree = "<group>"; };
 		EBCF8664148DF82D00615C69 /* LTKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LTKit.xcodeproj; path = LTKit/LTKit.xcodeproj; sourceTree = "<group>"; };
 		EBCF8677148DF93A00615C69 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "マスターピース (TVsize).m4a"; sourceTree = "<group>"; };
 		EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KPMainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,7 +192,7 @@
 		EB05EA821484129E00CF036F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EBCF8679148DF9A600615C69 /* Audio */,
+				EB40D54F1494A167006C24CC /* Audio */,
 				EB05EA831484129E00CF036F /* Core Data */,
 				EB05EA861484129E00CF036F /* Images */,
 				EB05EA871484129E00CF036F /* Interface Builder */,
@@ -219,6 +221,15 @@
 				EBCF8688148E02AD00615C69 /* KPMainStoryboard.storyboard */,
 			);
 			path = "Interface Builder";
+			sourceTree = "<group>";
+		};
+		EB40D54F1494A167006C24CC /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				EB40D5581494B14C006C24CC /* Masterpiece (Instrumental).m4a */,
+				EB40D5591494B14C006C24CC /* Masterpiece.m4a */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		EB58A139148DEC2B0019E720 /* KaraokePadTests */ = {
@@ -264,14 +275,6 @@
 				EBCF8673148DF82D00615C69 /* LTPlayground.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EBCF8679148DF9A600615C69 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				EBCF867A148DF9A600615C69 /* マスターピース (TVsize).m4a */,
-			);
-			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,8 +380,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB05EA5214840FC500CF036F /* InfoPlist.strings in Resources */,
-				EBCF867B148DF9A600615C69 /* マスターピース (TVsize).m4a in Resources */,
 				EBCF8689148E02AD00615C69 /* KPMainStoryboard.storyboard in Resources */,
+				EB40D55A1494B14C006C24CC /* Masterpiece (Instrumental).m4a in Resources */,
+				EB40D55B1494B14C006C24CC /* Masterpiece.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
