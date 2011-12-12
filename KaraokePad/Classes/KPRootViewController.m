@@ -34,6 +34,7 @@
 - (void)audioStartedPlaying;
 - (void)audioStoppedPlaying;
 - (void)audioPlayerPollTimerDidFire;
+- (void)updateUIForPlaybackState;
 - (void)handlePlaybackSpeedSliderTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer;
 - (NSString *)formattedTimeStringFromTimeInterval:(NSTimeInterval)timeInterval;
 
@@ -117,8 +118,12 @@
 
 - (void)audioPlayerPollTimerDidFire
 {
-	self.playbackProgressView.progress = (float)(self.normalAudioPlayer.currentTime / self.normalAudioPlayer.duration);
+	[self updateUIForPlaybackState];
+}
 
+- (void)updateUIForPlaybackState
+{
+	self.playbackProgressView.progress = (float)(self.normalAudioPlayer.currentTime / self.normalAudioPlayer.duration);
 	self.timeElapsed = self.normalAudioPlayer.currentTime;
 	self.timeRemaining = (self.normalAudioPlayer.duration - self.timeElapsed);
 }
@@ -193,10 +198,8 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)didFinishPlayingSuccessfully
 {
-	self.timeElapsed = 0.0;
-	self.timeRemaining = self.normalAudioPlayer.duration;
-
 	[self audioStoppedPlaying];
+	[self updateUIForPlaybackState];
 }
 
 @end

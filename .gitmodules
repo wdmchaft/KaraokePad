@@ -1,0 +1,3 @@
+[submodule "KaraokePad/External Dependencies/LTKit"]
+	path = KaraokePad/External Dependencies/LTKit
+	url = git@github.com:LucasTizma/LTKit.git

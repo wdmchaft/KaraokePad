@@ -22,7 +22,6 @@
 		EB40D55A1494B14C006C24CC /* Masterpiece (Instrumental).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5581494B14C006C24CC /* Masterpiece (Instrumental).m4a */; };
 		EB40D55B1494B14C006C24CC /* Masterpiece.m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5591494B14C006C24CC /* Masterpiece.m4a */; };
 		EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13B148DEC2B0019E720 /* InfoPlist.strings */; };
-		EB58A142148DEC2B0019E720 /* KaraokePadTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */; };
 		EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB58A140148DEC2B0019E720 /* KaraokePadTests.m */; };
 		EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF8651148DF25F00615C69 /* KPRootViewController.m */; };
 		EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF866F148DF82D00615C69 /* libLTKit.a */; };
@@ -236,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				EB58A13A148DEC2B0019E720 /* Supporting Files */,
-				EB58A13E148DEC2B0019E720 /* Tests */,
+				EB58A13E148DEC2B0019E720 /* Test Classes */,
 			);
 			path = KaraokePadTests;
 			sourceTree = SOURCE_ROOT;
@@ -250,13 +249,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EB58A13E148DEC2B0019E720 /* Tests */ = {
+		EB58A13E148DEC2B0019E720 /* Test Classes */ = {
 			isa = PBXGroup;
 			children = (
 				EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */,
 				EB58A140148DEC2B0019E720 /* KaraokePadTests.m */,
 			);
-			path = Tests;
+			path = "Test Classes";
 			sourceTree = "<group>";
 		};
 		EB58A144148DECA30019E720 /* External Dependencies */ = {
@@ -391,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */,
-				EB58A142148DEC2B0019E720 /* KaraokePadTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +587,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
-				INFOPLIST_FILE = "KaraokePadTests/KaraokePadTests-Info.plist";
+				INFOPLIST_FILE = "KaraokePadTests/Supporting Files/KaraokePadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -606,7 +604,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
-				INFOPLIST_FILE = "KaraokePadTests/KaraokePadTests-Info.plist";
+				INFOPLIST_FILE = "KaraokePadTests/Supporting Files/KaraokePadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

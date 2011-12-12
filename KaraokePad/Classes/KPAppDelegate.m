@@ -108,18 +108,6 @@
 
 #pragma mark - UIApplicationDelegate Methods
 
-//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-//{
-//	KPRootViewController *rootViewController = [KPRootViewController new];
-//
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//	self.window.rootViewController = rootViewController;
-//    [self.window makeKeyAndVisible];
-//
-//    return YES;
-//}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	[self saveContext];
