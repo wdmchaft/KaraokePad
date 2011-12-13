@@ -1,18 +1,30 @@
 //
-//  KPRootViewController.m
-//  KaraokePad
+//	KPRootViewController.m
+//	KaraokePad
 //
-//  Created by Michael Potter on 12/5/11.
-//  Copyright (c) 2011 LucasTizma. All rights reserved.
+//	Copyright (c) 2011 Michael Potter
+//	http://lucas.tiz.ma
+//	lucas@tiz.ma
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//	FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//	WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import <AVFoundation/AVFoundation.h>
 
 #import "KPRootViewController.h"
+#import "KPMultitrackAudioPlayer.h"
 
 #pragma mark Class Extension -
 
-@interface KPRootViewController () <AVAudioPlayerDelegate>
+@interface KPRootViewController () <AVAudioPlayerDelegate, KPMultitrackAudioPlayerDelegate>
 
 @property (readwrite, nonatomic, strong) IBOutlet UIButton *playPauseButton;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *playbackSpeedSlider;
@@ -21,9 +33,9 @@
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeElapsedLabel;
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeRemainingLabel;
 
-@property (readwrite, nonatomic, strong) AVAudioPlayer *normalAudioPlayer;
-@property (readwrite, nonatomic, strong) AVAudioPlayer *instrumentalAudioPlayer;
-@property (readwrite, nonatomic, strong) NSTimer *audioPlayerPollTimer;
+@property (readwrite, nonatomic, strong) KPMultitrackAudioPlayer *karaokeAudioPlayer;
+@property (readwrite, nonatomic, strong) AVAssetTrack *backingAudioTrack;
+@property (readwrite, nonatomic, strong) AVAssetTrack *vocalsAudioTrack;
 @property (readwrite, nonatomic) NSTimeInterval timeElapsed;
 @property (readwrite, nonatomic) NSTimeInterval timeRemaining;
 
@@ -33,8 +45,7 @@
 
 - (void)audioStartedPlaying;
 - (void)audioStoppedPlaying;
-- (void)audioPlayerPollTimerDidFire;
-- (void)updateUIForPlaybackState;
+- (void)updateUIForCurrentTime;
 - (void)handlePlaybackSpeedSliderTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer;
 - (NSString *)formattedTimeStringFromTimeInterval:(NSTimeInterval)timeInterval;
 
@@ -49,9 +60,9 @@
 @synthesize timeElapsedLabel;
 @synthesize timeRemainingLabel;
 
-@synthesize normalAudioPlayer;
-@synthesize instrumentalAudioPlayer;
-@synthesize audioPlayerPollTimer;
+@synthesize karaokeAudioPlayer;
+@synthesize backingAudioTrack;
+@synthesize vocalsAudioTrack;
 @synthesize timeElapsed;
 @synthesize timeRemaining;
 
@@ -75,64 +86,50 @@
 
 - (IBAction)didTapPlayPauseButton
 {
-	if (self.normalAudioPlayer.playing)
+	if (self.karaokeAudioPlayer.playing)
 	{
-		[self.normalAudioPlayer pause];
-		[self.instrumentalAudioPlayer pause];
+		[self.karaokeAudioPlayer pause];
 		[self audioStoppedPlaying];
 	}
 	else
 	{
-		[self.normalAudioPlayer play];
-		[self.instrumentalAudioPlayer play];
+		[self.karaokeAudioPlayer play];
 		[self audioStartedPlaying];
 	}
 }
 
 - (IBAction)playbackSpeedSliderValueChanged
 {
-	self.normalAudioPlayer.rate = self.instrumentalAudioPlayer.rate = self.playbackSpeedSlider.value;
+	self.karaokeAudioPlayer.rate = self.playbackSpeedSlider.value;
 }
 
 - (IBAction)vocalsVolumeSliderValueChanged
 {
-	self.normalAudioPlayer.volume = self.vocalsVolumeSlider.value;
-	self.instrumentalAudioPlayer.volume = (1.0f - self.vocalsVolumeSlider.value);
+	[self.karaokeAudioPlayer setVolume:self.vocalsVolumeSlider.value forAudioTrack:self.vocalsAudioTrack];
 }
 
 - (void)audioStartedPlaying
 {
-	self.audioPlayerPollTimer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(audioPlayerPollTimerDidFire) userInfo:nil repeats:YES];
-	[[NSRunLoop mainRunLoop] addTimer:self.audioPlayerPollTimer forMode:NSDefaultRunLoopMode];
-
 	[self.playPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
 }
 
 - (void)audioStoppedPlaying
 {
-	[self.audioPlayerPollTimer invalidate];
-	self.audioPlayerPollTimer = nil;
-
 	[self.playPauseButton setTitle:@"Play" forState:UIControlStateNormal];
 }
 
-- (void)audioPlayerPollTimerDidFire
+- (void)updateUIForCurrentTime
 {
-	[self updateUIForPlaybackState];
-}
-
-- (void)updateUIForPlaybackState
-{
-	self.playbackProgressView.progress = (float)(self.normalAudioPlayer.currentTime / self.normalAudioPlayer.duration);
-	self.timeElapsed = self.normalAudioPlayer.currentTime;
-	self.timeRemaining = (self.normalAudioPlayer.duration - self.timeElapsed);
+	self.playbackProgressView.progress = (float)(self.karaokeAudioPlayer.currentTime / self.karaokeAudioPlayer.duration);
+	self.timeElapsed = self.karaokeAudioPlayer.currentTime;
+	self.timeRemaining = (self.karaokeAudioPlayer.duration - self.timeElapsed);
 }
 
 - (void)handlePlaybackSpeedSliderTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer
 {
 	if (tapGestureRecognizer.state == UIGestureRecognizerStateEnded)
 	{
-		self.normalAudioPlayer.rate = self.instrumentalAudioPlayer.rate = self.playbackSpeedSlider.value = 1.0f;
+		self.karaokeAudioPlayer.rate = self.playbackSpeedSlider.value = 1.0f;
 	}
 }
 
@@ -153,22 +150,16 @@
 {
 	[super viewDidAppear:animated];
 
-	NSURL *normalAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece" withExtension:@"m4a"];
-	NSURL *instrumentalAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Instrumental)" withExtension:@"m4a"];
+	NSURL *backingAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Backing)" withExtension:@"m4a"];
+	NSURL *vocalsAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Vocals)" withExtension:@"m4a"];
 
-	self.normalAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:normalAudioResourceURL error:nil];
-	self.normalAudioPlayer.delegate = self;
-	self.normalAudioPlayer.enableRate = YES;
-	[self.normalAudioPlayer prepareToPlay];
+	self.karaokeAudioPlayer = [KPMultitrackAudioPlayer new];
+	self.karaokeAudioPlayer.delegate = self;
+	self.backingAudioTrack = [self.karaokeAudioPlayer addAudioTrackFromURL:backingAudioResourceURL];
+	self.vocalsAudioTrack = [self.karaokeAudioPlayer addAudioTrackFromURL:vocalsAudioResourceURL];
 
-	self.instrumentalAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:instrumentalAudioResourceURL error:nil];
-	self.instrumentalAudioPlayer.delegate = self;
-	self.instrumentalAudioPlayer.enableRate = YES;
-	self.instrumentalAudioPlayer.volume = 0.0f;
-	[self.instrumentalAudioPlayer prepareToPlay];
-
-	self.timeElapsed = 0.0;
-	self.timeRemaining = self.normalAudioPlayer.duration;
+	[self.karaokeAudioPlayer prepareForPlayback];
+	[self.karaokeAudioPlayer setVolume:self.vocalsVolumeSlider.value forAudioTrack:self.vocalsAudioTrack];
 
 	UITapGestureRecognizer *playbackSpeedSliderTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
 		action:@selector(handlePlaybackSpeedSliderTapGesture:)];
@@ -199,7 +190,38 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)didFinishPlayingSuccessfully
 {
 	[self audioStoppedPlaying];
-	[self updateUIForPlaybackState];
+	[self updateUIForCurrentTime];
+}
+
+#pragma mark - KPMultitrackAudioPlayerDelegate Methods
+
+- (void)multitrackAudioPlayerDidFinishPreparingForPlayback:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
+{
+	NSLog(@"Finished preparing for audio playback.");
+
+	self.timeElapsed = 0.0;
+	self.timeRemaining = multitrackAudioPlayer.duration;
+	self.playPauseButton.enabled = YES;
+}
+
+- (void)multitrackAudioPlayerDidStartPlaying:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
+{
+	NSLog(@"Started playing.");
+}
+
+- (void)multitrackAudioPlayerDidPause:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
+{
+	NSLog(@"Audio playback paused.");
+}
+
+- (void)multitrackAudioPlayerDidStopPlaying:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
+{
+	NSLog(@"Finished playing.");
+}
+
+- (void)multitrackAudioPlayerDidChangeCurrentTime:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
+{
+	[self updateUIForCurrentTime];
 }
 
 @end
