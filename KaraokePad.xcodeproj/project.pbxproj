@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB01B1A91497277B0088CD6B /* KPMultitrackAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EB01B1A81497277B0088CD6B /* KPMultitrackAudioPlayer.m */; };
 		EB01B1AB1497278E0088CD6B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB01B1AA1497278E0088CD6B /* CoreMedia.framework */; };
+		EB01B1BC1497B7880088CD6B /* Destin Histoire (Backing).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB01B1BA1497B7880088CD6B /* Destin Histoire (Backing).m4a */; };
+		EB01B1BD1497B7880088CD6B /* Destin Histoire (Vocals).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB01B1BB1497B7880088CD6B /* Destin Histoire (Vocals).m4a */; };
 		EB05EA4614840FC500CF036F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4514840FC500CF036F /* UIKit.framework */; };
 		EB05EA4814840FC500CF036F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4714840FC500CF036F /* Foundation.framework */; };
 		EB05EA4A14840FC500CF036F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4914840FC500CF036F /* CoreGraphics.framework */; };
@@ -24,6 +26,10 @@
 		EB40D55A1494B14C006C24CC /* Masterpiece (Backing).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5581494B14C006C24CC /* Masterpiece (Backing).m4a */; };
 		EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13B148DEC2B0019E720 /* InfoPlist.strings */; };
 		EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB58A140148DEC2B0019E720 /* KaraokePadTests.m */; };
+		EBA760A014A0D4E1009713E2 /* KPProgressSliderThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA7609E14A0D4E1009713E2 /* KPProgressSliderThumb.png */; };
+		EBA760A114A0D4E1009713E2 /* KPProgressSliderThumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA7609F14A0D4E1009713E2 /* KPProgressSliderThumb@2x.png */; };
+		EBAB1C0B14A4D60700C19E7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAB1C0A14A4D60700C19E7B /* QuartzCore.framework */; };
+		EBAEF9D1149884E700AAE3D7 /* KPProgressSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */; };
 		EBBD1A6F1495FC8D00297CDA /* Masterpiece (Vocals).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EBBD1A6E1495FC8D00297CDA /* Masterpiece (Vocals).m4a */; };
 		EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF8651148DF25F00615C69 /* KPRootViewController.m */; };
 		EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF866F148DF82D00615C69 /* libLTKit.a */; };
@@ -73,6 +79,8 @@
 		EB01B1A71497277B0088CD6B /* KPMultitrackAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KPMultitrackAudioPlayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EB01B1A81497277B0088CD6B /* KPMultitrackAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPMultitrackAudioPlayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EB01B1AA1497278E0088CD6B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EB01B1BA1497B7880088CD6B /* Destin Histoire (Backing).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Destin Histoire (Backing).m4a"; sourceTree = "<group>"; };
+		EB01B1BB1497B7880088CD6B /* Destin Histoire (Vocals).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Destin Histoire (Vocals).m4a"; sourceTree = "<group>"; };
 		EB05EA4114840FC500CF036F /* KaraokePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaraokePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB05EA4514840FC500CF036F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EB05EA4714840FC500CF036F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,6 +100,11 @@
 		EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KaraokePadTests-Info.plist"; sourceTree = "<group>"; };
 		EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraokePadTests.h; sourceTree = "<group>"; };
 		EB58A140148DEC2B0019E720 /* KaraokePadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaraokePadTests.m; sourceTree = "<group>"; };
+		EBA7609E14A0D4E1009713E2 /* KPProgressSliderThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KPProgressSliderThumb.png; sourceTree = "<group>"; };
+		EBA7609F14A0D4E1009713E2 /* KPProgressSliderThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KPProgressSliderThumb@2x.png"; sourceTree = "<group>"; };
+		EBAB1C0A14A4D60700C19E7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EBAEF9CF149884E700AAE3D7 /* KPProgressSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPProgressSlider.h; sourceTree = "<group>"; };
+		EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPProgressSlider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EBBD1A6E1495FC8D00297CDA /* Masterpiece (Vocals).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Masterpiece (Vocals).m4a"; sourceTree = "<group>"; };
 		EBCF8650148DF25F00615C69 /* KPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KPRootViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EBCF8651148DF25F00615C69 /* KPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPRootViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -110,6 +123,7 @@
 				EB05EA4C14840FC500CF036F /* CoreData.framework in Frameworks */,
 				EB05EA4A14840FC500CF036F /* CoreGraphics.framework in Frameworks */,
 				EB01B1AB1497278E0088CD6B /* CoreMedia.framework in Frameworks */,
+				EBAB1C0B14A4D60700C19E7B /* QuartzCore.framework in Frameworks */,
 				EB05EA4814840FC500CF036F /* Foundation.framework in Frameworks */,
 				EB05EA4614840FC500CF036F /* UIKit.framework in Frameworks */,
 			);
@@ -156,6 +170,7 @@
 				EB05EA4914840FC500CF036F /* CoreGraphics.framework */,
 				EB01B1AA1497278E0088CD6B /* CoreMedia.framework */,
 				EB05EA4714840FC500CF036F /* Foundation.framework */,
+				EBAB1C0A14A4D60700C19E7B /* QuartzCore.framework */,
 				EB05EA6214840FC600CF036F /* SenTestingKit.framework */,
 				EB05EA4514840FC500CF036F /* UIKit.framework */,
 			);
@@ -191,6 +206,8 @@
 				EB05EA811484129E00CF036F /* KPAppDelegate.m */,
 				EB01B1A71497277B0088CD6B /* KPMultitrackAudioPlayer.h */,
 				EB01B1A81497277B0088CD6B /* KPMultitrackAudioPlayer.m */,
+				EBAEF9CF149884E700AAE3D7 /* KPProgressSlider.h */,
+				EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */,
 				EBCF8650148DF25F00615C69 /* KPRootViewController.h */,
 				EBCF8651148DF25F00615C69 /* KPRootViewController.m */,
 			);
@@ -219,6 +236,8 @@
 		EB05EA861484129E00CF036F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EBA7609E14A0D4E1009713E2 /* KPProgressSliderThumb.png */,
+				EBA7609F14A0D4E1009713E2 /* KPProgressSliderThumb@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -234,6 +253,8 @@
 		EB40D54F1494A167006C24CC /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				EB01B1BA1497B7880088CD6B /* Destin Histoire (Backing).m4a */,
+				EB01B1BB1497B7880088CD6B /* Destin Histoire (Vocals).m4a */,
 				EB40D5581494B14C006C24CC /* Masterpiece (Backing).m4a */,
 				EBBD1A6E1495FC8D00297CDA /* Masterpiece (Vocals).m4a */,
 			);
@@ -391,6 +412,10 @@
 				EBCF8689148E02AD00615C69 /* KPMainStoryboard.storyboard in Resources */,
 				EB40D55A1494B14C006C24CC /* Masterpiece (Backing).m4a in Resources */,
 				EBBD1A6F1495FC8D00297CDA /* Masterpiece (Vocals).m4a in Resources */,
+				EB01B1BC1497B7880088CD6B /* Destin Histoire (Backing).m4a in Resources */,
+				EB01B1BD1497B7880088CD6B /* Destin Histoire (Vocals).m4a in Resources */,
+				EBA760A014A0D4E1009713E2 /* KPProgressSliderThumb.png in Resources */,
+				EBA760A114A0D4E1009713E2 /* KPProgressSliderThumb@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +455,7 @@
 				EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */,
 				EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */,
 				EB01B1A91497277B0088CD6B /* KPMultitrackAudioPlayer.m in Sources */,
+				EBAEF9D1149884E700AAE3D7 /* KPProgressSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +538,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"KaraokePad/External Dependencies/LTKit\"/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -547,6 +576,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"KaraokePad/External Dependencies/LTKit\"/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -560,9 +592,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"KaraokePad/External Dependencies/LTKit/**",
-				);
 				INFOPLIST_FILE = "KaraokePad/Supporting Files/KaraokePad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -577,9 +606,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"KaraokePad/External Dependencies/LTKit/**",
-				);
 				INFOPLIST_FILE = "KaraokePad/Supporting Files/KaraokePad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -598,7 +624,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
+				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
 				INFOPLIST_FILE = "KaraokePadTests/Supporting Files/KaraokePadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -615,7 +641,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KaraokePad/KaraokePad-Prefix.pch";
+				GCC_PREFIX_HEADER = "KaraokePad/Supporting Files/KaraokePad-Prefix.pch";
 				INFOPLIST_FILE = "KaraokePadTests/Supporting Files/KaraokePadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

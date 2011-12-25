@@ -21,23 +21,25 @@
 
 #import "KPRootViewController.h"
 #import "KPMultitrackAudioPlayer.h"
+#import "KPProgressSlider.h"
 
 #pragma mark Class Extension -
 
-@interface KPRootViewController () <AVAudioPlayerDelegate, KPMultitrackAudioPlayerDelegate>
+@interface KPRootViewController () <KPMultitrackAudioPlayerDelegate, KPProgressSliderDelegate>
 
 @property (readwrite, nonatomic, strong) IBOutlet UIButton *playPauseButton;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *playbackSpeedSlider;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *vocalsVolumeSlider;
-@property (readwrite, nonatomic, strong) IBOutlet UIProgressView *playbackProgressView;
+@property (readwrite, nonatomic, strong) IBOutlet KPProgressSlider *playbackProgressSlider;
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeElapsedLabel;
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeRemainingLabel;
 
 @property (readwrite, nonatomic, strong) KPMultitrackAudioPlayer *karaokeAudioPlayer;
 @property (readwrite, nonatomic, strong) AVAssetTrack *backingAudioTrack;
 @property (readwrite, nonatomic, strong) AVAssetTrack *vocalsAudioTrack;
-@property (readwrite, nonatomic) NSTimeInterval timeElapsed;
-@property (readwrite, nonatomic) NSTimeInterval timeRemaining;
+@property (readwrite, nonatomic, assign) NSTimeInterval timeElapsed;
+@property (readwrite, nonatomic, assign) NSTimeInterval timeRemaining;
+@property (readwrite, nonatomic, assign) BOOL karaokeAudioPlayerWasPlaying;
 
 - (IBAction)didTapPlayPauseButton;
 - (IBAction)playbackSpeedSliderValueChanged;
@@ -56,7 +58,7 @@
 @synthesize playPauseButton;
 @synthesize playbackSpeedSlider;
 @synthesize vocalsVolumeSlider;
-@synthesize playbackProgressView;
+@synthesize playbackProgressSlider;
 @synthesize timeElapsedLabel;
 @synthesize timeRemainingLabel;
 
@@ -65,6 +67,7 @@
 @synthesize vocalsAudioTrack;
 @synthesize timeElapsed;
 @synthesize timeRemaining;
+@synthesize karaokeAudioPlayerWasPlaying;
 
 #pragma mark - Property Setters
 
@@ -120,7 +123,7 @@
 
 - (void)updateUIForCurrentTime
 {
-	self.playbackProgressView.progress = (float)(self.karaokeAudioPlayer.currentTime / self.karaokeAudioPlayer.duration);
+	self.playbackProgressSlider.progress = (float)(self.karaokeAudioPlayer.currentTime / self.karaokeAudioPlayer.duration);
 	self.timeElapsed = self.karaokeAudioPlayer.currentTime;
 	self.timeRemaining = (self.karaokeAudioPlayer.duration - self.timeElapsed);
 }
@@ -150,8 +153,8 @@
 {
 	[super viewDidAppear:animated];
 
-	NSURL *backingAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Backing)" withExtension:@"m4a"];
-	NSURL *vocalsAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Masterpiece (Vocals)" withExtension:@"m4a"];
+	NSURL *backingAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Destin Histoire (Backing)" withExtension:@"m4a"];
+	NSURL *vocalsAudioResourceURL = [[NSBundle mainBundle] URLForResource:@"Destin Histoire (Vocals)" withExtension:@"m4a"];
 
 	self.karaokeAudioPlayer = [KPMultitrackAudioPlayer new];
 	self.karaokeAudioPlayer.delegate = self;
@@ -164,6 +167,11 @@
 	UITapGestureRecognizer *playbackSpeedSliderTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
 		action:@selector(handlePlaybackSpeedSliderTapGesture:)];
 	[self.playbackSpeedSlider addGestureRecognizer:playbackSpeedSliderTapGestureRecognizer];
+
+	self.playbackProgressSlider.shouldUseTrackingRateLevels = YES;
+	self.playbackProgressSlider.trackingRateLevelHeight = 50.0f;
+	self.playbackProgressSlider.numberOfTrackingRateLevels = 5;
+	self.playbackProgressSlider.trackingRateLevelMultiplier = 0.5f;
 }
 
 - (void)viewDidUnload
@@ -173,7 +181,7 @@
 	self.playPauseButton = nil;
 	self.playbackSpeedSlider = nil;
 	self.vocalsVolumeSlider = nil;
-	self.playbackProgressView = nil;
+	self.playbackProgressSlider = nil;
 	self.timeElapsedLabel = nil;
 	self.timeRemainingLabel = nil;
 }
@@ -184,14 +192,6 @@
 }
 
 #pragma mark - Protocol Methods
-
-#pragma mark - AVAudioPlayerDelegate Methods
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)didFinishPlayingSuccessfully
-{
-	[self audioStoppedPlaying];
-	[self updateUIForCurrentTime];
-}
 
 #pragma mark - KPMultitrackAudioPlayerDelegate Methods
 
@@ -217,11 +217,46 @@
 - (void)multitrackAudioPlayerDidStopPlaying:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
 {
 	NSLog(@"Finished playing.");
+
+	[self audioStoppedPlaying];
+	[self updateUIForCurrentTime];
 }
 
 - (void)multitrackAudioPlayerDidChangeCurrentTime:(KPMultitrackAudioPlayer *)multitrackAudioPlayer
 {
 	[self updateUIForCurrentTime];
+}
+
+#pragma mark - KPProgressSliderDelegate Methods
+
+- (void)progressSliderDidBeginTracking:(KPProgressSlider *)progressSlider
+{
+	self.karaokeAudioPlayerWasPlaying = [self.karaokeAudioPlayer isPlaying];
+
+	[self.karaokeAudioPlayer pause];
+}
+
+- (void)progressSliderDidEndTracking:(KPProgressSlider *)progressSlider
+{
+	[self.karaokeAudioPlayer seekToTime:(progressSlider.progress * self.karaokeAudioPlayer.duration)];
+
+	if (self.karaokeAudioPlayerWasPlaying)
+	{
+		[self.karaokeAudioPlayer play];
+	}
+}
+
+- (void)progressSlider:(KPProgressSlider *)progressSlider didChangeProgress:(CGFloat)progress
+{
+	if ([self.karaokeAudioPlayer isPlaying])
+	{
+		[self.karaokeAudioPlayer seekToTime:(progress * self.karaokeAudioPlayer.duration)];
+	}
+}
+
+- (void)progressSlider:(KPProgressSlider *)progressSlider didChangeTrackingRateLevel:(NSInteger)trackingRateLevel
+{
+	NSLog(@"Tracking rate level: %d", trackingRateLevel);
 }
 
 @end

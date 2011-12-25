@@ -11,6 +11,7 @@
 #ifdef __OBJC__
 	#import <CoreData/CoreData.h>
 	#import <Foundation/Foundation.h>
+	#import <QuartzCore/QuartzCore.h>
 	#import <UIKit/UIKit.h>
 
 	#import "LTKit/LTKit.h"

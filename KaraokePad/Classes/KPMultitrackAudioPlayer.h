@@ -26,8 +26,8 @@
 
 @property (readwrite, nonatomic, weak) id<KPMultitrackAudioPlayerDelegate> delegate;
 @property (readwrite, nonatomic, assign) CGFloat rate;
-@property (readwrite, nonatomic, assign) NSTimeInterval currentTime;
 @property (readwrite, nonatomic, assign) NSTimeInterval currentTimeUpdateInterval;
+@property (readonly, nonatomic, assign) NSTimeInterval currentTime;
 @property (readonly, nonatomic, assign) NSTimeInterval duration;
 @property (readonly, nonatomic, assign, getter = isPlaying) BOOL playing;
 
@@ -35,6 +35,7 @@
 - (AVAssetTrack *)addAudioTrackFromURL:(NSURL *)audioTrackURL withTimingOffset:(NSTimeInterval)timingOffset;
 - (CGFloat)volumeForAudioTrack:(AVAssetTrack *)audioTrack;
 - (void)setVolume:(CGFloat)volume forAudioTrack:(AVAssetTrack *)audioTrack;
+- (void)seekToTime:(NSTimeInterval)time;
 - (void)prepareForPlayback;
 - (void)play;
 - (void)pause;
