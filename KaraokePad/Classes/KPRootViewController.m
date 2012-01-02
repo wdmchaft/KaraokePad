@@ -21,16 +21,15 @@
 
 #import "KPRootViewController.h"
 #import "KPMultitrackAudioPlayer.h"
-#import "KPProgressSlider.h"
 
 #pragma mark Class Extension -
 
-@interface KPRootViewController () <KPMultitrackAudioPlayerDelegate, KPProgressSliderDelegate>
+@interface KPRootViewController () <KPMultitrackAudioPlayerDelegate, LTKProgressSliderDelegate>
 
 @property (readwrite, nonatomic, strong) IBOutlet UIButton *playPauseButton;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *playbackSpeedSlider;
 @property (readwrite, nonatomic, strong) IBOutlet UISlider *vocalsVolumeSlider;
-@property (readwrite, nonatomic, strong) IBOutlet KPProgressSlider *playbackProgressSlider;
+@property (readwrite, nonatomic, strong) IBOutlet LTKProgressSlider *playbackProgressSlider;
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeElapsedLabel;
 @property (readwrite, nonatomic, strong) IBOutlet UILabel *timeRemainingLabel;
 
@@ -168,8 +167,8 @@
 		action:@selector(handlePlaybackSpeedSliderTapGesture:)];
 	[self.playbackSpeedSlider addGestureRecognizer:playbackSpeedSliderTapGestureRecognizer];
 
-	self.playbackProgressSlider.shouldUseTrackingRateLevels = YES;
-	self.playbackProgressSlider.trackingRateLevelHeight = 50.0f;
+	self.playbackProgressSlider.trackingRateLevelsEnabled = YES;
+	self.playbackProgressSlider.trackingRateLevelHeight = 75.0f;
 	self.playbackProgressSlider.numberOfTrackingRateLevels = 5;
 	self.playbackProgressSlider.trackingRateLevelMultiplier = 0.5f;
 }
@@ -227,16 +226,16 @@
 	[self updateUIForCurrentTime];
 }
 
-#pragma mark - KPProgressSliderDelegate Methods
+#pragma mark - LTKProgressSliderDelegate Methods
 
-- (void)progressSliderDidBeginTracking:(KPProgressSlider *)progressSlider
+- (void)progressSliderDidBeginTracking:(LTKProgressSlider *)progressSlider
 {
 	self.karaokeAudioPlayerWasPlaying = [self.karaokeAudioPlayer isPlaying];
 
 	[self.karaokeAudioPlayer pause];
 }
 
-- (void)progressSliderDidEndTracking:(KPProgressSlider *)progressSlider
+- (void)progressSliderDidEndTracking:(LTKProgressSlider *)progressSlider
 {
 	[self.karaokeAudioPlayer seekToTime:(progressSlider.progress * self.karaokeAudioPlayer.duration)];
 
@@ -246,7 +245,7 @@
 	}
 }
 
-- (void)progressSlider:(KPProgressSlider *)progressSlider didChangeProgress:(CGFloat)progress
+- (void)progressSlider:(LTKProgressSlider *)progressSlider didChangeProgress:(CGFloat)progress
 {
 	if ([self.karaokeAudioPlayer isPlaying])
 	{
@@ -254,7 +253,7 @@
 	}
 }
 
-- (void)progressSlider:(KPProgressSlider *)progressSlider didChangeTrackingRateLevel:(NSInteger)trackingRateLevel
+- (void)progressSlider:(LTKProgressSlider *)progressSlider didChangeTrackingRateLevel:(NSInteger)trackingRateLevel
 {
 	NSLog(@"Tracking rate level: %d", trackingRateLevel);
 }

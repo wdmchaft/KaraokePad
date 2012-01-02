@@ -23,13 +23,13 @@
 		EB05EA6614840FC600CF036F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05EA4B14840FC500CF036F /* CoreData.framework */; };
 		EB05EA881484129E00CF036F /* KPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA811484129E00CF036F /* KPAppDelegate.m */; };
 		EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB05EA841484129E00CF036F /* KaraokePad.xcdatamodeld */; };
+		EB40BACE14B16258006DD25D /* LTKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB40BACD14B16258006DD25D /* LTKit.bundle */; };
 		EB40D55A1494B14C006C24CC /* Masterpiece (Backing).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EB40D5581494B14C006C24CC /* Masterpiece (Backing).m4a */; };
 		EB58A141148DEC2B0019E720 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB58A13B148DEC2B0019E720 /* InfoPlist.strings */; };
 		EB58A143148DEC2B0019E720 /* KaraokePadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB58A140148DEC2B0019E720 /* KaraokePadTests.m */; };
 		EBA760A014A0D4E1009713E2 /* KPProgressSliderThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA7609E14A0D4E1009713E2 /* KPProgressSliderThumb.png */; };
 		EBA760A114A0D4E1009713E2 /* KPProgressSliderThumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA7609F14A0D4E1009713E2 /* KPProgressSliderThumb@2x.png */; };
 		EBAB1C0B14A4D60700C19E7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAB1C0A14A4D60700C19E7B /* QuartzCore.framework */; };
-		EBAEF9D1149884E700AAE3D7 /* KPProgressSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */; };
 		EBBD1A6F1495FC8D00297CDA /* Masterpiece (Vocals).m4a in Resources */ = {isa = PBXBuildFile; fileRef = EBBD1A6E1495FC8D00297CDA /* Masterpiece (Vocals).m4a */; };
 		EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF8651148DF25F00615C69 /* KPRootViewController.m */; };
 		EBCF8676148DF93400615C69 /* libLTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF866F148DF82D00615C69 /* libLTKit.a */; };
@@ -95,16 +95,15 @@
 		EB05EA801484129E00CF036F /* KPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KPAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EB05EA811484129E00CF036F /* KPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EB05EA851484129E00CF036F /* KaraokePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KaraokePad.xcdatamodel; sourceTree = "<group>"; };
+		EB40BACD14B16258006DD25D /* LTKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LTKit.bundle; path = "KaraokePad/External Dependencies/LTKit/LTKit/LTKit.bundle"; sourceTree = SOURCE_ROOT; };
 		EB40D5581494B14C006C24CC /* Masterpiece (Backing).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Masterpiece (Backing).m4a"; sourceTree = "<group>"; };
 		EB58A13C148DEC2B0019E720 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB58A13D148DEC2B0019E720 /* KaraokePadTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "KaraokePadTests-Info.plist"; sourceTree = "<group>"; };
 		EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraokePadTests.h; sourceTree = "<group>"; };
-		EB58A140148DEC2B0019E720 /* KaraokePadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaraokePadTests.m; sourceTree = "<group>"; };
+		EB58A140148DEC2B0019E720 /* KaraokePadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KaraokePadTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EBA7609E14A0D4E1009713E2 /* KPProgressSliderThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KPProgressSliderThumb.png; sourceTree = "<group>"; };
 		EBA7609F14A0D4E1009713E2 /* KPProgressSliderThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KPProgressSliderThumb@2x.png"; sourceTree = "<group>"; };
 		EBAB1C0A14A4D60700C19E7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		EBAEF9CF149884E700AAE3D7 /* KPProgressSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPProgressSlider.h; sourceTree = "<group>"; };
-		EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPProgressSlider.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EBBD1A6E1495FC8D00297CDA /* Masterpiece (Vocals).m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Masterpiece (Vocals).m4a"; sourceTree = "<group>"; };
 		EBCF8650148DF25F00615C69 /* KPRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KPRootViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EBCF8651148DF25F00615C69 /* KPRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KPRootViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -206,8 +205,6 @@
 				EB05EA811484129E00CF036F /* KPAppDelegate.m */,
 				EB01B1A71497277B0088CD6B /* KPMultitrackAudioPlayer.h */,
 				EB01B1A81497277B0088CD6B /* KPMultitrackAudioPlayer.m */,
-				EBAEF9CF149884E700AAE3D7 /* KPProgressSlider.h */,
-				EBAEF9D0149884E700AAE3D7 /* KPProgressSlider.m */,
 				EBCF8650148DF25F00615C69 /* KPRootViewController.h */,
 				EBCF8651148DF25F00615C69 /* KPRootViewController.m */,
 			);
@@ -217,6 +214,7 @@
 		EB05EA821484129E00CF036F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB40BACD14B16258006DD25D /* LTKit.bundle */,
 				EB40D54F1494A167006C24CC /* Audio */,
 				EB05EA831484129E00CF036F /* Core Data */,
 				EB05EA861484129E00CF036F /* Images */,
@@ -285,7 +283,8 @@
 				EB58A13F148DEC2B0019E720 /* KaraokePadTests.h */,
 				EB58A140148DEC2B0019E720 /* KaraokePadTests.m */,
 			);
-			path = "Test Classes";
+			name = "Test Classes";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		EB58A144148DECA30019E720 /* External Dependencies */ = {
@@ -416,6 +415,7 @@
 				EB01B1BD1497B7880088CD6B /* Destin Histoire (Vocals).m4a in Resources */,
 				EBA760A014A0D4E1009713E2 /* KPProgressSliderThumb.png in Resources */,
 				EBA760A114A0D4E1009713E2 /* KPProgressSliderThumb@2x.png in Resources */,
+				EB40BACE14B16258006DD25D /* LTKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +455,6 @@
 				EB05EA891484129E00CF036F /* KaraokePad.xcdatamodeld in Sources */,
 				EBCF8652148DF25F00615C69 /* KPRootViewController.m in Sources */,
 				EB01B1A91497277B0088CD6B /* KPMultitrackAudioPlayer.m in Sources */,
-				EBAEF9D1149884E700AAE3D7 /* KPProgressSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

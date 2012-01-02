@@ -73,10 +73,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" id="eQ3-4Z-GMD" userLabel="Playback Progress Slider" customClass="KPProgressSlider">
+                            <progressView opaque="NO" contentMode="scaleToFill" id="eQ3-4Z-GMD" userLabel="Playback Progress Slider" customClass="LTKProgressSlider">
                                 <rect key="frame" x="70" y="968" width="628" height="9"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="jOl-Yz-uOT" id="Yek-wF-kdL"/>
                                 </connections>
@@ -104,6 +103,28 @@
             <point key="canvasLocation" x="-118" y="-258"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="KPRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KPRootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapPlayPauseButton"/>
+                <relationship kind="action" name="playbackSpeedSliderValueChanged"/>
+                <relationship kind="action" name="vocalsVolumeSliderValueChanged"/>
+                <relationship kind="outlet" name="playPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playbackProgressSlider" candidateClass="LTKProgressSlider"/>
+                <relationship kind="outlet" name="playbackSpeedSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timeElapsedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeRemainingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vocalsVolumeSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="LTKProgressSlider" superclassName="UIProgressView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LTKProgressSlider.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

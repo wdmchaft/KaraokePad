@@ -43,57 +43,57 @@
 
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (managedObjectContext != nil)
-    {
-        return managedObjectContext;
-    }
+	if (managedObjectContext != nil)
+	{
+	    return managedObjectContext;
+	}
 
-    if (self.persistentStoreCoordinator != nil)
-    {
-        managedObjectContext = [NSManagedObjectContext new];
-        [managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
-    }
+	if (self.persistentStoreCoordinator != nil)
+	{
+	    managedObjectContext = [NSManagedObjectContext new];
+	    [managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+	}
 
-    return managedObjectContext;
+	return managedObjectContext;
 }
 
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if (managedObjectModel != nil)
-    {
-        return managedObjectModel;
-    }
+	if (managedObjectModel != nil)
+	{
+	    return managedObjectModel;
+	}
 
-    NSURL *managedObjectModelURL = [[NSBundle mainBundle] URLForResource:@"KaraokePad" withExtension:@"momd"];
-    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:managedObjectModelURL];
+	NSURL *managedObjectModelURL = [[NSBundle mainBundle] URLForResource:@"KaraokePad" withExtension:@"momd"];
+	managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:managedObjectModelURL];
 
-    return managedObjectModel;
+	return managedObjectModel;
 }
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (persistentStoreCoordinator != nil)
-    {
-        return persistentStoreCoordinator;
-    }
+	if (persistentStoreCoordinator != nil)
+	{
+	    return persistentStoreCoordinator;
+	}
 
-    NSURL *persistentStoreCoordinatorURL = [self.applicationDocumentsDirectory URLByAppendingPathComponent:@"KaraokePad.sqlite"];
+	NSURL *persistentStoreCoordinatorURL = [self.applicationDocumentsDirectory URLByAppendingPathComponent:@"KaraokePad.sqlite"];
 
 	NSDictionary *persistentStoreCoordinatorOptions = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
 		[NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
 		nil];
 
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+	persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
 
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:persistentStoreCoordinatorURL
+	if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:persistentStoreCoordinatorURL
 		options:persistentStoreCoordinatorOptions error:nil])
-    {
-        NSLog(@"Core Data error, most likely a model migration issue.");
-        abort();
-    }
+	{
+	    NSLog(@"Core Data error, most likely a model migration issue.");
+	    abort();
+	}
 
-    return persistentStoreCoordinator;
+	return persistentStoreCoordinator;
 }
 
 - (NSURL *)applicationDocumentsDirectory
@@ -105,14 +105,14 @@
 
 - (void)saveContext
 {
-    if (self.managedObjectContext != nil)
-    {
-        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:nil])
-        {
-            NSLog(@"Error saving the managed object context.");
-            abort();
-        }
-    }
+	if (self.managedObjectContext != nil)
+	{
+	    if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:nil])
+	    {
+	        NSLog(@"Error saving the managed object context.");
+	        abort();
+	    }
+	}
 }
 
 #pragma mark - Protocol Implementations

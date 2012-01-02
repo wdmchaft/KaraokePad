@@ -147,11 +147,11 @@ KPMultitrackAudioPlayerState;
 	AVMutableCompositionTrack *mutableCompositionTrack = [self.mutableComposition addMutableTrackWithMediaType:AVMediaTypeAudio
 		preferredTrackID:kCMPersistentTrackID_Invalid];
 
-    AVURLAsset *audioTrackFileAsset = [AVURLAsset URLAssetWithURL:audioTrackURL options:URLAssetOptions];
-    CMTimeRange audioTrackTimeRange = CMTimeRangeMake(kCMTimeZero, [audioTrackFileAsset duration]);
-    AVAssetTrack *audioAssetTrack = [[audioTrackFileAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+	AVURLAsset *audioTrackFileAsset = [AVURLAsset URLAssetWithURL:audioTrackURL options:URLAssetOptions];
+	CMTimeRange audioTrackTimeRange = CMTimeRangeMake(kCMTimeZero, [audioTrackFileAsset duration]);
+	AVAssetTrack *audioAssetTrack = [[audioTrackFileAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
 
-    [mutableCompositionTrack insertTimeRange:audioTrackTimeRange ofTrack:audioAssetTrack atTime:CMTimeMakeWithSeconds(timingOffset, 1) error:nil];
+	[mutableCompositionTrack insertTimeRange:audioTrackTimeRange ofTrack:audioAssetTrack atTime:CMTimeMakeWithSeconds(timingOffset, 1) error:nil];
 
 	self.preparedForPlayback = NO;
 
