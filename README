@@ -1,0 +1,7 @@
+Pretty README coming when this project progresses a little bit more. :)
+
+After cloning, you need to pull down LTKit as a submodule:
+
+> git submodule init; git submodule update
+
+Should build straight from there.
